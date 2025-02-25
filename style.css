@@ -1,0 +1,1013 @@
+/* GRUNDINSTÄLLNINGAR -----------------------------------------------------------------------------------*/
+
+/* Tar bort standardmarginaler och padding från alla element */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* scrollar mjukt vid klick på länkar */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Outfit' /* Standardtypsnitt */
+}
+
+/* Grundinställningar för body */
+body {
+    background-color: #FFFFFF; 
+    color: #000; 
+    line-height: 1.6; 
+    overflow-x: hidden;
+}
+
+/* inställningar för bilder */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+}
+
+/* inställningar för länkar */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* centrera inehållet */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Responsivitet */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%; /* Minska bredden lite på mobil */
+    }
+}
+
+/* HEADER -------------------------------------------------------------------------------------------------- */
+
+
+header {
+    display: flex;
+    justify-content: space-between; /* skapa utrymme */
+    align-items: center;
+    background-color: white;
+    padding: 20px 20px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    max-width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    height: 45px; /*storlek*/
+}
+
+header .container {
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+/* 'Seca' i mitten */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Parisienne', cursive;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Sociala ikoner till vänster */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons img {
+    width: 30px;  
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effekt*/
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Kontaktinfo till höger*/
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Håller dem till höger */
+    justify-content: center; /* Centreras vertikalt */
+    height: 100%;
+}
+
+/* Marketing-texten (Barcode) */
+.marketing-text {
+    font-family: 'Libre Barcode 39 Extended', cursive;
+    font-size: 15px;
+    text-align: right;
+    line-height: 1;
+    margin-bottom: auto; 
+    margin-top: 8px; 
+    padding-right: 15px; /* Flytta in från högerkanten */
+}
+
+
+/* Mailikon & text bredvid varandra */
+.email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.mail-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Responsivitet för header */
+@media screen and (max-width: 480px) {
+    header {
+        height: 45px; /* Bibehåll samma höjd */
+        padding: 10px 15px; /* Minskar padding */
+    }
+
+    .logo {
+        font-size: 5vw; /* Mindre storlek */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-icons img {
+        width: 20px; /* Mindre ikoner */
+        height: 20px;
+    }
+
+    .contact {
+        align-items: flex-end; /* Håll det till höger */
+        font-size: clamp(8px, 2.8vw, 12px); /* Justerad storlek för mindre skärmar */
+    }
+
+    .marketing-text {
+        font-size: clamp(8px, 2.8vw, 12px); /* Minska storlek */
+        padding-right: 5px;
+    }
+
+    .email {
+        font-size: clamp(8px, 2.8vw, 12px); /* Minska textstorlek */
+        gap: 5px; /* Minska avstånd */
+    }
+
+    .mail-icon {
+        width: clamp(10px, 2vw, 12px); /* Justera ikonstorleken */
+        height: clamp(10px, 2vw, 12px);
+    }
+}
+
+
+/* Framsidan -------------------------------------------------------------------------------------------- */
+.hero {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bakgrundsbilden */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* fyller hela sektionen */
+    opacity: 3; /* transparensen */
+    z-index: -1; /* bilden hamnar bakom texten */
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 80%;
+    max-width: 1200px;
+}
+
+/* Vänster sektion - Seca logga */
+.hero-left {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.hero-logo {
+    width: 50%; 
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.025); /* skala av ökning vid hover*/
+}
+
+/* Höger sektion - Rubrik text */
+.hero-right {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-right h1 {
+    font-size: 70px;
+    font-family: 'Outfit'; 
+    font-weight: 400;
+    margin-left: 20px;
+    line-height: 1;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-family: 'Outfit'; 
+    font-weight: 400;
+    color: #555;
+    margin-left: 20px;
+}
+
+.hero-right h2 {
+    font-size: 30px;
+    font-family: 'Orienta'; 
+    font-weight: 400;
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .hero-container {
+        display: flex;
+        flex-direction: row; /* Behåll sidledslayout */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Justera vänstra delen */
+    .hero-left {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-logo {
+        width: 40vw; /* Mindre logga */
+        max-width: 200px;
+    }
+
+    /* Högra delen*/
+    .hero-right {
+        flex: 1;
+        text-align: left; /* texten är vänsterjusterad */
+        padding: 10px;
+    }
+
+    .hero-right h1 {
+        font-size: 6vw; /* Skala ner rubriken */
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 3.5vw;
+        text-align: center;
+    }
+
+    .hero-right h2 {
+        font-size: 4.5vw; 
+        text-align: center;
+    }
+}
+
+
+
+/* Om oss sektion --------------------------------------------------------------------------------------------- */
+.about {
+    position: relative;
+    padding: 40px 0 0; /* Minskar höjden */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #FFFFFF; 
+}
+
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    gap: 20px; /* avstånd mellan text och bild */
+}
+
+/* Vänster kolumn - Text */
+.about-text {
+    flex: 1;
+    max-width: 550px; 
+    text-align: left;
+    font-family: 'Outfit'; 
+}
+
+/* Rubrik "Om oss" */
+.about-text h2 {
+    font-size: 30px; 
+    font-weight: 400; 
+    margin-top: -10px;
+    margin-bottom: 35px; /* avståndet mellan rubrik och text */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* text med tydlig läsbarhet */
+.about-text p {
+    font-size: 16px; 
+    line-height: 1.4; /* radavstånd */
+    margin-bottom: 15px; 
+    color: #333;
+}
+
+/* Höger kolumn - Mobil bild */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bild - Telefon med app */
+.about-image img {
+    max-width: 300px; 
+    height: auto;
+}
+
+/* Horisontell linje i sketionens botten */
+.about-line {
+    position: absolute;
+    bottom: 0; /* Sätter linjen längst ner i sektionen */
+    left: 0; /* Startar från vänsterkanten */
+    width: 100%; /* Gör att linjen täcker hela bredden */
+    height: 1px; /* Tjocklek på linjen */
+    background-color: black;
+}
+
+/* Responsivitet för Om oss */
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .about-image {
+        display: none !important;
+    }
+    
+    .about-line {
+        display: none !important;
+    }
+}
+
+/* Resultatsektion ------------------------------------------------------------------------------------ */
+
+.results {
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    margin-top: 50px;
+}
+
+.results .container {
+    display: flex;
+    align-items: stretch; /* box och bild får samma höjd */
+    width: 100%;
+    max-width: none;
+    position: relative;
+}
+
+/* Gymbilden */
+.results-image {
+    flex: 1.4; /* ger bilden mer utrymme */
+    position: relative;
+    display: flex;
+}
+
+.results-image img:first-child {
+    width: 140%; /* bildens bredd */
+    max-width: none; 
+    object-fit: cover;
+    margin-left: -10%; /* börjar vid vänsterkant */
+    max-height: 500px;
+}
+
+/* Wellness logotyp på gym bild */
+.results-image img:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrerar */
+    width: 300px;
+}
+
+/* Statistikboxen */
+.results-box {
+    flex: 1;
+    background-color: #D9E7FF;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    height: auto; /* anpassar sig efter bildens höjd */
+    justify-content: center;
+    min-height: 100%; /* samma höjd som bilden */
+    width: auto;
+    flex-grow: 1;
+}
+
+/* Blå färg på varannan rad */
+.results-box h3 {
+    font-size: 28px;
+    font-weight: 450;
+    color: #2C02AA; /* Blå färg */
+    margin-top: 30px;
+    padding-left: 40px;
+    font-family: 'Outfit';
+}
+
+/* Fetstil på vissa texter */
+.results-box p {
+    font-size: 22px;
+    font-weight: bold; /* Fetstil */
+    color: #000;
+    margin-top: 20px;
+    padding-left: 40px;
+    font-family: 'Outfit';
+}
+
+/* Seca-logotyp i boxen */
+.results-logo {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 70px;
+    opacity: 0.8; /*transparens*/
+}
+
+@media screen and (max-width: 768px) {
+    .results .container {
+        display: flex;
+        flex-direction: row; /* Behåll layouten i rad */
+        align-items: stretch; /* Se till att både bild och box har samma höjd */
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .results-image {
+        flex: 1;
+        max-width: 50%;
+        display: flex;
+        align-items: stretch; /* Sträck bilden så att den tar hela höjden */
+        margin: 0;
+        padding: 0;
+    }
+
+    .results-image img:first-child {
+        width: 100%; /* Se till att bilden fyller hela bredden */
+        height: 100%; /* Se till att bilden fyller hela höjden */
+        object-fit: cover; /* Gör så att bilden täcker hela sin yta utan att förvrängas */
+        display: block; /* Ta bort eventuella mellanrum */
+        margin: 0;
+        padding: 0;
+    }
+
+    .results-box {
+        flex: 1;
+        padding: 15px; /* Mindre padding så att boxen inte känns för stor */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+    }
+
+    .results-box h3 {
+        font-size: 4vw; /* Minska rubrikstorlek dynamiskt */
+        margin-top: 10px;
+        padding-left: 10px;
+    }
+
+    .results-box p {
+        font-size: 3.5vw; /* Minska textstorlek dynamiskt */
+        padding-left: 10px;
+    }
+
+    .results-logo {
+        width: 40px; /* Minska storleken på logotypen */
+        top: 10px;
+        right: 10px;
+    }
+}
+
+
+
+/* Produktsektion -------------------------------------------------------------------------------------- */
+
+.product {
+    width: 100%;
+    padding: 20px 0 0; /* Justera avståndet mellan sektionerna */
+    background-color: #FFFFFF; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product .container {
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* H2 - "Produkt" titel */
+.product h2 {
+    text-align: center; /* Centrera texten */
+    padding-left: 0; /* Ta bort vänster-padding */
+    width: 100%;
+    font-size: 28px; 
+    font-weight: 400;
+    margin-bottom: 30px;
+    font-family: 'Outfit';
+}
+
+/* Wrapper för mobilerna */
+.product-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Säkerställer rätt bredd */
+    gap: 60px; /* Samma mellanrum som texten */
+}
+
+/* mobilerna */
+.product-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 240px; /* storleken på mobilerna */
+}
+
+/* Mobilbilder */
+.product-item img {
+    width: 100%;
+    max-width: 240px; /* Alla mobiler får samma bredd */
+    display: block;
+}
+
+/* Blå box under mobilerna */
+.product-box {
+    width: 100vw; /* Anpassa bredden efter skärmen */
+    max-width: 1400; /* Sätt en maxbredd */
+    background-color: #D9E7FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0; /* Minska padding för att göra boxen kortare */
+    margin-top: -15px;
+    gap: 5vw; /* Anpassa avståndet dynamiskt */
+    flex-wrap: wrap; /* Tillåter att texten bryts om nödvändigt */
+    min-height: 60px; /* Begränsar hur hög boxen får vara */
+}
+
+/* Text i blå boxen */
+.product-box p {
+    font-size: clamp(10px, 2vw, 14px); /* Minskar fontstorleken successivt */
+    font-weight: 500;
+    font-family: 'Outfit';
+    text-align: center;
+    width: 20vw; /* Anpassar bredden */
+    max-width: 220px; /* Sätter en maxbredd */
+    line-height: 1.2; /* Gör texten mer kompakt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tar bort texten under bilderna och strecken */
+.product-item p,
+.product-line {
+    display: none;
+}
+
+/* Responsivitet för Produkt */
+@media screen and (max-width: 768px) {
+    .product-box {
+        width: 100vw; /* Mindre skärmar får en smalare blå box */
+        padding: 15px 0; /* Minska padding ytterligare */
+        gap: 3vw; /* Minska mellanrummet */
+        min-height: 40px; /* Gör boxen ännu lägre */
+    }
+
+    .product-box p {
+        font-size: clamp(8px, 1.8vw, 12px); /* Justera textstorleken */
+        width: 25vw; /* Anpassa bredden */
+        max-width: 180px; /* Håll texten inom rimliga mått */
+    }
+}
+
+
+
+
+/* FORMULÄRSEKTION --------------------------------------------------------------------------------------- */
+
+.contact-form-section {
+    width: 100%;
+    background-color: #FFFFFF; 
+    padding: 100px 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container för text och formulär */
+.contact-form-section .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    gap: 50px;
+}
+
+/* Vänster sektion - text */
+.contact-form-section .contact-text {
+    flex: 1;
+    max-width: 450px;
+    text-align: left;
+}
+
+/* Rubrik */
+.contact-form-section .contact-text h2 {
+    font-size: 36px;
+    font-weight: 700;
+    font-family: 'Outfit';
+    color: #000000;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+/* Viktiga ord i highlight */
+.contact-form-section .contact-text .highlight {
+    color: #2C02AA;
+    font-weight: 700;
+}
+
+/* Beskrivning */
+.contact-form-section .contact-text p {
+    font-size: 25px;
+    font-family: 'Outfit';
+    color: #333;
+    margin-top: 40px;
+    font-weight: 500;
+}
+
+/* Höger sektion - formulärbox */
+.contact-form-section .form-container {
+    flex: 1;
+    max-width: 500px;
+    background-color: #D9E7FF;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Formulär */
+.contact-form-section .contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Formulärgrupper */
+.contact-form-section .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Inputfält */
+.contact-form-section .form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    font-family: 'Outfit';
+}
+
+/* Inputfält med ikon bredvid */
+.contact-form-section .form-group img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Skicka-knapp */
+.contact-form-section .submit-button {
+    width: 70%;
+    padding: 12px;
+    font-size: 18px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    color: #FFFFFF;
+    background-color: #2C02AA;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: block; /* tar hela sin rad */
+    margin: 20px auto 0; /* Centrerar den horisontellt */
+    text-align: center; /* texten inuti är centrerad */
+}
+
+.contact-form-section .submit-button:hover {
+    background-color: #1A0170; /*Färg när man hovrar på knappen*/
+}
+
+/* Responsivitet för Formulär */
+@media screen and (max-width: 768px) {
+    .contact-form-section .container {
+        flex-direction: column;
+    }
+}
+
+
+/* videosektionen ------------------------------------------------------------------------------------ */
+.video-section {
+    width: 100%;
+    position: relative;
+}
+
+/* Video-container med originalstorlek */
+.video-container {
+    width: 100%;
+    height: 300px; /* Anpassar höjden */
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease-in-out; /* övergång, start, slut */
+}
+
+/* När videon blir sticky i toppen (javaScript) */
+.video-container.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; /* höjden när den fastnar */
+    z-index: 1000; /* ligger ovanför annat innehåll */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Skuggeffekt */
+}
+
+/* Styling för videon*/
+.background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* video med containern format */
+}
+
+
+/* Kontaktsektion -------------------------------------------------------------------------------------------*/
+.contact-section {
+    width: 100%;
+    position: relative;
+    padding: 170px 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; /* ligger över videon */
+}
+
+/* Bakgrundsbild */
+.contact-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Lägger bakgrunden bakom info-box */
+}
+
+.contact-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Container för info-box */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 80%;
+    max-width: 1200px;
+    gap: 30px;
+    position: relative;
+    z-index: 3; 
+}
+
+/* Kontaktkort */
+.contact-card {
+    flex: 1;
+    background-color: #D9E7FF;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Hover-effekt */
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Namn */
+.contact-card h3 {
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'Ovo';
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+/* Position och info */
+.contact-card p {
+    font-size: 16px;
+    font-family: 'Ovo';
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Markerad text */
+.contact-card p strong {
+    color: #2C02AA;
+    font-weight: 600;
+}
+
+/* Video-sektion som blir sticky */
+.video-container.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; 
+    z-index: 1; /* under boxarna */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsivitet för Kontakt */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
+/* Footer -------------------------------------------------------------------------------------------------*/
+.footer {
+    width: 100%;
+    position: relative;
+    background-color: #000000;
+    color: white;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Footer-container */
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centrera innehållet */
+    width: 80%;
+    max-width: 1200px;
+    position: relative;
+}
+
+/* Footer-innehåll */
+.footer-content {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 170px; /* mellanrum mellan logga och text */
+    flex-wrap: nowrap; /* Förhindrar att elementen staplas vertikalt */
+}
+
+/* Logo-styling */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo img {
+    width: 140px; /* Minskar storleken i mobil */
+    height: auto;
+}
+
+/* Footer-info */
+.footer-info {
+    background-color: #1a1a1a; 
+    color: white; 
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    text-align: left;
+    font-family: 'Rem';
+    height: 100%; /* Säkerställer att höjden matchar loggans höjd */
+}
+
+.footer-info h3 {
+    font-size: 14px; /* Anpassad storlek för mobil */
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.footer-info p {
+    font-size: 11px; /* Anpassad storlek för mobil */
+    margin: 3px 0;
+    color: #D9E7FF;
+}
+
+/* Responsivitet för Footer */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: row; /* Håller logga och text bredvid varandra */
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        flex-wrap: nowrap; /* Ser till att de ligger bredvid varandra */
+    }
+
+    .footer-logo img {
+        width: 100px; /* Anpassa storleken för mobil */
+    }
+
+    .footer-info {
+        padding: 10px;
+        text-align: center;
+        max-width: 50%; /* Säkerställer att texten inte blir för bred */
+        height: auto; /* Säkerställer att höjden anpassas efter loggan */
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+}
